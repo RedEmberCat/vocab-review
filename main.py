@@ -1,7 +1,7 @@
 import random
+import sys
 import time
 
-import quiz_config as qc
 
 def main():
     words = get_words()
@@ -9,7 +9,7 @@ def main():
         words = study(words)
 
 def get_words():
-    with open(qc.filename, 'r', encoding='utf8') as lines:
+    with open(sys.argv[1], 'r', encoding='utf8') as lines:
         # split lines into [#, initial, en]
         words = [l.strip().split('\t') for l in lines if l.strip()]
     random.shuffle(words)
@@ -31,4 +31,3 @@ def study(words):
     return review_words
 
 main()
-
