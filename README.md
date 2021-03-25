@@ -11,7 +11,7 @@ Review language vocabulary.
 
 ## Use
 Run the script, passing the word list file to use:
-`python quiz.py words\es.txt`
+`python main.py words\es.txt`
 
 ## Word list format
 the file is a tsv (tab separated values) file
