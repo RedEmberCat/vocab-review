@@ -1,0 +1,22 @@
+number             numbers
+none
+one
+few
+many
+10
+100
+1000
+about              as in approximately
+less than
+more than
+half
+red                colors
+orange
+yellow
+green
+blue
+violet
+black
+white
+big                size
+small

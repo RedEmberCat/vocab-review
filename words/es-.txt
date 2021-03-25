@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1	como	as
+2	yo	i
+3	su	his
+4	que	that
+5	él	he
+6	era	was
+7	para	for
+8	en	on
+9	son	are
+10	con	with
+11	ellos	they
+12	ser	be
+13	en	at
+14	uno	one
+15	tener	have
+16	este	this
+17	desde	from
+18	por	by
+19	caliente	hot
+20	palabra	word
+21	pero	but
+22	qué	what
+23	algunos	some
+24	es	is
+25	lo	it
+26	usted	you
+27	o	or
+28	tenido	had
+29	la	the
+30	de	of
+31	a	to
+32	y	and
+33	un	a
