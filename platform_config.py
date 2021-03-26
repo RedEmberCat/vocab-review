@@ -1,6 +1,6 @@
 filename = 'es-.txt'
 
-def input_from_button():
+def input_from_button(_):
     reponse = {'canceled': True}
     while 'canceled' in response:  # := doesn't work on phone
         droid.dialogCreateAlert()  # title, message
