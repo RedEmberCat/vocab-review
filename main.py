@@ -1,5 +1,4 @@
 import random
-import sys
 import time
 
 import platform_config as pc
@@ -10,7 +9,7 @@ def main():
         words = study(words)
 
 def get_words():
-    with open(sys.argv[1], 'r', encoding='utf8') as lines:
+    with open(pc.filepath, 'r', encoding='utf8') as lines:
         # split lines into [#, initial, en]
         words = [l.strip().split('\t') for l in lines if l.strip()]
     random.shuffle(words)

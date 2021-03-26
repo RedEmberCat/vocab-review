@@ -1,3 +1,5 @@
+filename = 'es-.txt'
+
 def input_from_button():
     reponse = {'canceled': True}
     while 'canceled' in response:  # := doesn't work on phone
@@ -14,5 +16,9 @@ try:
     from androidhelper import Android
     droid = Android()
     get_input = input_from_button
+    dir = r'/storage/emulated/0/user/docs/code/vocab-review/words/'
 except ModuleNotFoundError:
     get_input = input
+    dir = 'words/'
+
+filepath = dir + filename
