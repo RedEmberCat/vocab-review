@@ -4,10 +4,10 @@ Review language vocabulary.
 
 ## Features (progress)
 
-:heavy_check_mark: CLI interface.
-:x: User indicates incorrect words.
-:x: Basic PyQt phone interface.
-:x: TTS interface.
+- :heavy_check_mark: CLI interface.
+- :heavy_check_mark: User indicates incorrect words.
+- :heavy_check_mark: Basic QPython phone interface.
+- :x: TTS interface.
 
 ## Use
 Run the script, passing the word list file to use:
