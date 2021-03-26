@@ -2,6 +2,7 @@ import random
 import sys
 import time
 
+import platform_config as pc
 
 def main():
     words = get_words()
@@ -22,12 +23,14 @@ def study(words):
     for _, initial, final in words:
         # shuffle asking final--initial or initial--final
         query, reply = (initial, final) if random.randint(0,1) else (final, initial)
-        user = input(query + '\t')
-        if user: review_words.append(previous_word)
+        user = pc.get_input(query + '\t')
         # if user input, then mark the word for additional review
+        if user: review_words.append(previous_word)
         print(f'  {reply:<18}', end='')
         previous_word = [_, initial, final]
     print('\n\nDONE\n\n')
     return review_words
 
 main()
+
+
