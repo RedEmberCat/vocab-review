@@ -8,7 +8,7 @@ def input_from_button(_):
         droid.dialogCreateAlert()  # title, message
         droid.dialogSetPositiveButtonText("okay")
         droid.dialogSetNeutralButtonText("hard")
-        droid.dialogSetNegativeButtonText("quit")
+        droid.dialogSetNegativeButtonText("exit")
         droid.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative]'}
         response = droid.dialogGetResponse().result
