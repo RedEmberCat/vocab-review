@@ -1,3 +1,5 @@
+import sys
+
 filename = 'es-.txt'
 
 def input_from_button(_):
@@ -5,12 +7,19 @@ def input_from_button(_):
     while 'canceled' in response:  # := doesn't work on phone
         droid.dialogCreateAlert()  # title, message
         droid.dialogSetPositiveButtonText("okay")
-        droid.dialogSetNegativeButtonText("hard")
+        droid.dialogSetNeutralButtonText("hard")
+        droid.dialogSetNegativeButtonText("quit")
         droid.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative]'}
         response = droid.dialogGetResponse().result
         droid.dialogDismiss() # ? seems to work without this line
-    return '' if response['which'] == 'positive' else 'non-empty'
+    if response['which'] == 'positive':
+        return ''
+    if response['which'] == 'neutral':
+        return 'non-empty'
+    else:
+        sys.exit()
+
 
 try:
     from androidhelper import Android

@@ -31,5 +31,3 @@ def study(words):
     return review_words
 
 main()
-
-
