@@ -35,12 +35,12 @@ def study(words):
 #from io import BytesIO
 from gtts import gTTS
 from tempfile import TemporaryFile
-from playsound import playsound #as play_music
+from androidhelper import Android
+android = Android()
 
-tts = gTTS(text="hola", lang="es")
+tts = gTTS(text="hello", lang="en")
 #f = TemporaryFile()
 #tts.write_to_fp(f)
 filename = "hello.mp3"
 tts.save(filename)
-#playsound(f)
-
+#android.mediaPlay(filename)
