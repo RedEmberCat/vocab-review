@@ -31,6 +31,8 @@ try:
     droid = Android()
     get_input = input_from_button
     dir = r'/storage/emulated/0/user/docs/code/vocab-review/words/'
+    audiodir = r'/storage/emulated/0/user/docs/code/vocab-review/words/'
+    play = lambda file: android.mediaPlay(audiodir + file + '.mp3')
 except ModuleNotFoundError:
     onAndroid = False
     get_input = input
