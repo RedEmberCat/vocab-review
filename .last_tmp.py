@@ -1,9 +1,14 @@
+# note: for the word con, i'm using kon because this is a reserved
+# word in windows and can't be used for filenames
+
 import random
 import time
 
-#import platform_config as pc
+import platform_config as pc
 
 def main():
+    if not pc.onAndroid:
+        generate_audio()
     words = get_words()
     while words:
         words = study(words)
@@ -30,17 +35,28 @@ def study(words):
     print('\n\nDONE\n\n')
     return review_words
 
-#main()
+def audio_in_path(filepath, path):
+    return filepath in path.iterdir()
 
-#from io import BytesIO
-from gtts import gTTS
-from tempfile import TemporaryFile
-from androidhelper import Android
-android = Android()
+def generate_audio():
+    print('generating audio for')
+    from gtts import gTTS
+    from pathlib import Path
+    audiopath = Path('./audio')
+    audio_generated = False
+    for word in get_words():
+        for index in range(1, 3):
+            item = word[index]
+            filepath = audiopath / f'{item}.mp3'
+            if not audio_in_path(filepath, audiopath):
+                audio_generated = True
+                language = pc.initial if index == 1 else pc.final
+                tts = gTTS(text=item, lang=language)
+                tts.save(filepath)
+                print(f'  {item}')
+    if not audio_generated:
+        print('  None')
+    print()
 
-tts = gTTS(text="hello", lang="en")
-#f = TemporaryFile()
-#tts.write_to_fp(f)
-filename = "hello.mp3"
-tts.save(filename)
-#android.mediaPlay(filename)
+
+main()

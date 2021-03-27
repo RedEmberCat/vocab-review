@@ -24,26 +24,27 @@ def study(words):
     review_words = []
     previous_word = ['', '', '']
     print(' '*20, end='')  # initialize query to the right column
-    for _, initial, final in words:
+    for number, initial, final in words:
         # shuffle asking final--initial or initial--final
         query, reply = (initial, final) if random.randint(0,1) else (final, initial)
+        if pc.onAndroid: pc.play(query)
         user = pc.get_input(query + '\t')
         # if user input, then mark the word for additional review
         if user: review_words.append(previous_word)
         print(f'  {reply:<18}', end='')
-        previous_word = [_, initial, final]
+        if pc.onAndroid: pc.play(reply)
+        previous_word = [number, initial, final]
     print('\n\nDONE\n\n')
     return review_words
 
-def audio_in_path(filepath, path):
-    return filepath in path.iterdir()
-
 def generate_audio():
-    print('generating audio for')
+    def audio_in_path(filepath, path):
+        return filepath in path.iterdir()
     from gtts import gTTS
     from pathlib import Path
     audiopath = Path('./audio')
     audio_generated = False
+    print('generating audio for')
     for word in get_words():
         for index in range(1, 3):
             item = word[index]
