@@ -9,14 +9,14 @@ final = 'en'
 def input_from_button(_):
     response = {'canceled': True}
     while 'canceled' in response:  # := doesn't work on phone
-        droid.dialogCreateAlert()  # title, message
-        droid.dialogSetPositiveButtonText("okay")
-        droid.dialogSetNeutralButtonText("hard")
-        droid.dialogSetNegativeButtonText("exit")
-        droid.dialogShow()
+        android.dialogCreateAlert()  # title, message
+        android.dialogSetPositiveButtonText("okay")
+        android.dialogSetNeutralButtonText("hard")
+        android.dialogSetNegativeButtonText("exit")
+        android.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative]'}
-        response = droid.dialogGetResponse().result
-        droid.dialogDismiss() # ? seems to work without this line
+        response = android.dialogGetResponse().result
+        android.dialogDismiss() # ? seems to work without this line
     if response['which'] == 'positive':
         return ''
     if response['which'] == 'neutral':
@@ -28,10 +28,10 @@ def input_from_button(_):
 try:
     from androidhelper import Android
     onAndroid = True
-    droid = Android()
+    android = Android()
     get_input = input_from_button
     dir = r'/storage/emulated/0/user/docs/code/vocab-review/words/'
-    audiodir = r'/storage/emulated/0/user/docs/code/vocab-review/words/'
+    audiodir = r'/storage/emulated/0/user/docs/code/vocab-review/audio/'
     play = lambda file: android.mediaPlay(audiodir + file + '.mp3')
 except ModuleNotFoundError:
     onAndroid = False
