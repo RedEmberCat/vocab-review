@@ -9,40 +9,40 @@ initial = 'es'
 final = 'en'
 
 def show_query_and_wait(query):
-    response = {'canceled': True}
-    while 'canceled' in response:  # := doesn't work on phone
+    response = {'which': 'neutral'}
+    while 'neutral' in response.values():  # := doesn't work on phone
         play(query)
         android.dialogCreateAlert(title=query)  # title, message
         # this button configuration makes it easier to press when
         #   holding the phone in the right hand, as i do.
         android.dialogSetPositiveButtonText("exit")
-        android.dialogSetNegativeButtonText("show answer")
+        android.dialogSetNeutralButtonText("repeat")
         android.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative]'}
         response = android.dialogGetResponse().result
         android.dialogDismiss() # ? seems to work without this line
-    if response['which'] == 'positive':
+    if response.get('which') == 'positive':
         sys.exit()
     else:
         return ''
 
 def show_reply_get_difficulty(reply):
-    response = {'canceled': True}
-    while 'canceled' in response:  # := doesn't work on phone
+    response = {'which': 'neutral'}
+    while 'neutral' in response.values():  # := doesn't work on phone
         play(reply)
         android.dialogCreateAlert(title=reply)  # title, message
         # this button configuration makes it easier to press when
         #   holding the phone in the right hand, as i do.
         android.dialogSetPositiveButtonText("exit")
-        android.dialogSetNeutralButtonText("hard")
-        android.dialogSetNegativeButtonText("okay")
+        android.dialogSetNeutralButtonText("repeat")
+        android.dialogSetNegativeButtonText("hard")
         android.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative|neutral]'}
         response = android.dialogGetResponse().result
         android.dialogDismiss() # ? seems to work without this line
-    if response['which'] == 'positive':
+    if response.get('which') == 'positive':
         sys.exit()
-    if response['which'] == 'neutral':
+    if response.get('which') == 'negative':
         return 'non-empty'
     else:
         return ''
