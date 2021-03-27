@@ -2,6 +2,10 @@ import sys
 
 filename = 'es-.txt'
 
+# languages
+initial = 'es'
+final = 'en'
+
 def input_from_button(_):
     response = {'canceled': True}
     while 'canceled' in response:  # := doesn't work on phone
@@ -23,10 +27,12 @@ def input_from_button(_):
 
 try:
     from androidhelper import Android
+    onAndroid = True
     droid = Android()
     get_input = input_from_button
     dir = r'/storage/emulated/0/user/docs/code/vocab-review/words/'
 except ModuleNotFoundError:
+    onAndroid = False
     get_input = input
     dir = 'words/'
 
