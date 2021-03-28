@@ -5,40 +5,52 @@ import sys
 initial = 'es'
 final = 'en'
 
-def show_query_and_wait(query):
+def show_query_and_wait(query, review_words):
     response = {'which': 'neutral'}
     while 'neutral' in response.values():  # := doesn't work on phone
         print(play(query))
         android.dialogCreateAlert(title=query)  # title, message
         # this button configuration makes it easier to press when
         #   holding the phone in the right hand, as i do.
-        android.dialogSetPositiveButtonText("exit")
-        android.dialogSetNeutralButtonText("repeat")
+        if review_words:
+            android.dialogSetPositiveButtonText("review")
+        else:
+            android.dialogSetPositiveButtonText("exit")
+        android.dialogSetNeutralButtonText("again")
         android.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative]'}
         response = android.dialogGetResponse().result
         android.dialogDismiss() # ? seems to work without this line
     if response.get('which') == 'positive':
-        sys.exit()
+        if review_words:
+            return 'review'
+        else:
+            sys.exit()
     else:
         return ''
 
-def show_reply_get_difficulty(reply):
+def show_reply_get_difficulty(reply, review_words):
     response = {'which': 'neutral'}
     while 'neutral' in response.values():  # := doesn't work on phone
         print(play(reply))
         android.dialogCreateAlert(title=reply)  # title, message
         # this button configuration makes it easier to press when
         #   holding the phone in the right hand, as i do.
-        android.dialogSetPositiveButtonText("exit")
-        android.dialogSetNeutralButtonText("repeat")
+        if review_words:
+            android.dialogSetPositiveButtonText("review")
+        else:
+            android.dialogSetPositiveButtonText("exit")
+        android.dialogSetNeutralButtonText("again")
         android.dialogSetNegativeButtonText("hard")
         android.dialogShow()
         # response :: {'[which|canceled]' : '[positive|negative|neutral]'}
         response = android.dialogGetResponse().result
         android.dialogDismiss() # ? seems to work without this line
     if response.get('which') == 'positive':
-        sys.exit()
+        if review_words:
+            return 'review'
+        else:
+            sys.exit()
     if response.get('which') == 'negative':
         return 'non-empty'
     else:
@@ -70,8 +82,10 @@ def study_android(words):
         number, initial, final = word
         # shuffle asking final--initial or initial--final
         query, reply = (initial, final) if random.randint(0,1) else (final, initial)
-        show_query_and_wait(query)
-        user = show_reply_get_difficulty(reply)
+        user = show_query_and_wait(query, review_words)
+        if user == 'review': break
+        user = show_reply_get_difficulty(reply, review_words)
+        if user == 'review': break
         if user: review_words.append(word)
     return review_words
 
