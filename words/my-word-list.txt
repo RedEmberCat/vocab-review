@@ -1,16 +1,21 @@
-number             numbers
-none
-one
-few
+# constructed language ideas
+
+## basic vocabulary
+
+word	pos	topic
+number	noun	number
+none	adj	number
+one	adj	number
+few	adj	number
 many
 10
 100
 1000
-about              as in approximately
+about		as in approximately
 less than
 more than
 half
-red                colors
+red		colors
 orange
 yellow
 green
@@ -18,5 +23,73 @@ blue
 violet
 black
 white
-big                size
+big		size
 small
+like as		description
+i
+you
+it
+that
+be
+
+we	i few		compounds
+y'all	you few		compounds
+they	they few		compounds
+
+## animals
+
+use taxonomy
+
+animal
+fungus
+plant
+? chromista
+? protozoa
+? archaea
+? bacteria
+
+fish
+amphibian
+reptile
+bird
+mammal
+
+
+mammal
+cat	meow mammal
+dog	woof mammal
+cow moo mammal
+dolphin water mammal
+
+## grammar
+
+part of speech by position
+
+sentence
+subject verb [mode] object [conjunction sentence]
+
+mode = adv, prep, prep + indir object
+
+sentence types
+
+subject
+subject verb
+subject verb object
+subject verb adverb
+subject verb object adverb
+subject verb adverb object
+subject verb object adverb object
+
+
+## parts of speech
+
+we have parts of speech
+
+this allows a simplification in grammar because we know what vocabulary
+stands for. for exmaple, around is a preposition. we can turn it into
+a verb using the verb to be. thus verbification is easy.
+
+nounification	thing
+verbification	to be
+adverbification	way
+

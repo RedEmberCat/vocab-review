@@ -1,10 +1,15 @@
 # note: for the word con, i'm using kon because this is a reserved
 # word in windows and can't be used for filenames
 
+filename = 'es-new.txt'
+filename = 'es-learned.txt'
+
 import random
 import time
 
 import platform_config as pc
+
+filepath = pc.dir + filename
 
 def main():
     if not pc.onAndroid:
@@ -14,7 +19,7 @@ def main():
         words = pc.study(words)
 
 def get_words():
-    with open(pc.filepath, 'r', encoding='utf8') as lines:
+    with open(filepath, 'r', encoding='utf8') as lines:
         # split lines into [#, initial, en]
         words = [l.strip().split('\t') for l in lines if l.strip()]
     random.shuffle(words)

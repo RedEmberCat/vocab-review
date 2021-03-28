@@ -1,9 +1,6 @@
 import random
 import sys
 
-filename = 'es-new.txt'
-#filename = 'es-learned.txt'
-
 # languages
 initial = 'es'
 final = 'en'
@@ -11,7 +8,7 @@ final = 'en'
 def show_query_and_wait(query):
     response = {'which': 'neutral'}
     while 'neutral' in response.values():  # := doesn't work on phone
-        play(query)
+        print(play(query))
         android.dialogCreateAlert(title=query)  # title, message
         # this button configuration makes it easier to press when
         #   holding the phone in the right hand, as i do.
@@ -29,7 +26,7 @@ def show_query_and_wait(query):
 def show_reply_get_difficulty(reply):
     response = {'which': 'neutral'}
     while 'neutral' in response.values():  # := doesn't work on phone
-        play(reply)
+        print(play(reply))
         android.dialogCreateAlert(title=reply)  # title, message
         # this button configuration makes it easier to press when
         #   holding the phone in the right hand, as i do.
@@ -91,4 +88,3 @@ except ModuleNotFoundError:
     study = study_pc
     dir = 'words/'
 
-filepath = dir + filename

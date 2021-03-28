@@ -1,38 +1,5 @@
 LIST AFTER ITEMS ARE REMOVED
 
-67	deletrear	spell
-68	añadir	add
-69	incluso	even
-70	tierra	land
-71	aquí	here
-72	debe	must
-73	grande	big
-74	alto	high
-75	tal	such
-76	siga	follow
-77	acto	act
-78	por qué	why
-79	preguntar	ask
-80	hombres	men
-81	cambio	change
-82	se fue	went
-83	luz	light
-84	tipo	kind
-85	fuera	off
-86	necesitará	need
-87	casa	house
-88	imagen	picture
-89	tratar	try
-90	nosotros	us
-91	de nuevo	again
-92	animal	animal
-93	punto	point
-94	madre	mother
-95	mundo	world
-96	cerca	near
-97	construir	build
-98	auto	self
-99	tierra	earth
 100	padre	father
 101	cualquier	any
 102	nuevo	new
